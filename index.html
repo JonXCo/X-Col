@@ -6,16 +6,23 @@
     <title>Congratulations!</title>
     <style>
         header {
-            background-image: url('GEO0169_Desktop_Header_Template_1950X350PX_V2.jpg'); /* Replace with the path to your banner image */
+            background-image: url('GEO0169_Desktop_Header_Template_1950X350PX_V2.jpg'); 
             background-size: cover;
             background-position: center;
-            height: 300px; /* Adjust the height as needed */
+            height: 300px;
             color: #fff;
             text-align: center;
             display: flex;
             flex-direction: column;
             justify-content: center;
         }
+
+        @media only screen and (max-width: 768px) {
+            header {
+            background-image: url('GEO0169_mobile.jpeg');    
+            }
+        }
+        
         body {
             font-family: Arial, sans-serif;
             text-align: center;
@@ -73,7 +80,7 @@
     <header>
     </header>
     <h1><br></h1>
-    <h1>Congratulations! <br> You've won a {{prize_name}} <br> in our promotion!</h1>
+    <h1 id="title">Congratulations! You've won a {{prize_name}} in our promotion!</h1>
     <nav class="socialshare">
         <ul class="social-icons">
             <li><button onclick="shareOnFacebook()">
@@ -106,6 +113,12 @@
     </footer>
 </body>
     <script>
+        const title = document.getElementById('title').textContent;
+        const urlmessage = "You can enter here"
+        const url = "google.com"
+
+        const message = encodeURIComponent(`${title} ${urlmessage} ${url}`);
+
         document.addEventListener('DOMContentLoaded', function () {
             var socialIcons = document.querySelectorAll('.social-icons button');
 
@@ -121,33 +134,29 @@
         });
 
         function shareOnTwitter() {
-            const tweetText = encodeURIComponent(`${document.querySelector('h1').textContent} You can enter here: google.com`);
-            const tweetUrl = `https://twitter.com/intent/tweet?text=${tweetText}`;
+            const tweetUrl = `https://twitter.com/intent/tweet?text=${message}`;
             window.open(tweetUrl, "_blank");
         }
 
         function composeWhatsAppMessage() {
-            const messageText = encodeURIComponent(`${document.querySelector('h1').textContent} You can enter here: google.com`);
-            const whatsappUrl = `https://api.whatsapp.com/send?text=${messageText}`;
+            const whatsappUrl = `https://api.whatsapp.com/send?text=${message}`;
             window.open(whatsappUrl, "_blank");
         }
 
         function shareOnFacebook() {
-            const postText = encodeURIComponent(`${document.querySelector('h1').textContent} You can enter here: google.com`);
-            const postUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}&quote=${postText}`;
+            const postUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}&quote=${message}`;
             window.open(postUrl, "_blank");
         }
 
         function shareViaSMS() {
-            const message = `${document.querySelector('h1').textContent} 🎉 #PromotionWinner #Prize. You can enter here: google.com`;
             const encodedMessage = encodeURIComponent(message);
             const smsUrl = `sms:?body=${encodedMessage}`;
             window.location.href = smsUrl;
         }
 
         function shareViaEmail() {
-            const subject = "Congratulations on Winning the Promotion!";
-            const body = `${document.querySelector('h1').textContent}\n\nBest regards,\n[Your Name]\n\nYou can enter here: google.com`;
+            const subject = "I won a prize!";
+            const body = message;
             const encodedSubject = encodeURIComponent(subject);
             const encodedBody = encodeURIComponent(body);
             const emailUrl = `mailto:?subject=${encodedSubject}&body=${encodedBody}`;
@@ -156,11 +165,11 @@
         }
         
         function copyToClipboard() {
-            const message = `${document.querySelector('h1').textContent} You can enter here: google.com`;
+            const m = decodeURI(message);
             
             // Create a temporary textarea to copy the text
             const textarea = document.createElement('textarea');
-            textarea.value = message;
+            textarea.value = m;
             
             // Append the textarea to the document
             document.body.appendChild(textarea);
@@ -171,7 +180,7 @@
             try {
                 // Copy the selected text to the clipboard
                 document.execCommand('copy');
-                console.log('Text copied to clipboard:', message);
+                console.log('Text copied to clipboard:', m);
                 alert('Text copied to clipboard!');
             } catch (err) {
                 console.error('Unable to copy to clipboard', err);
