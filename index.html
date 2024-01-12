@@ -149,17 +149,17 @@
         }
 
         function shareViaSMS() {
-            const encodedMessage = decodeURI(message);
-            const smsUrl = `sms:?body=${encodedMessage}`;
+            const body = message;
+            const smsUrl = `sms:?body=${body}`;
             window.location.href = smsUrl;
         }
 
         function shareViaEmail() {
             const subject = "I won a prize!";
             const body = message;
-            const encodedSubject = encodeURIComponent(subject);
-            const encodedBody = decodeURI(body);
-            const emailUrl = `mailto:?subject=${encodedSubject}&body=${encodedBody}`;
+            // const encodedSubject = encodeURIComponent(subject);
+            // const encodedBody = decodeURI(body);
+            const emailUrl = `mailto:?subject=${subject}&body=${body}`;
 
             window.open(emailUrl, '_blank');
         }
