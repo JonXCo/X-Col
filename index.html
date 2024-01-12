@@ -6,23 +6,29 @@
     <title>Congratulations!</title>
     <style>
         header {
-            background-image: url('GEO0169_Desktop_Header_Template_1950X350PX_V2.jpg'); 
-            background-size: cover;
-            background-position: center;
-            height: 300px;
-            color: #fff;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            max-width: 100%;
+            img {
+                width: 100%;
+            }
+
+            img.desktop {
+                display: block;
+            }
+            img.mobile {
+                display: none;
+            }
         }
 
         @media only screen and (max-width: 768px) {
             header {
-            background-image: url('GEO0169_mobile.jpeg');
+                img.desktop {
+                    display: none;
+                }
+                img.mobile {
+                    display: block;
+                }
             }
         }
+        
         
         body {
             font-family: Arial, sans-serif;
@@ -79,6 +85,8 @@
 </head>
 <body>
     <header>
+        <img src="https://cdn.roilti.com/public/media/campaigns/GEO0169/QhHGV2tfsj50QjB5WUprrFoBFwjRefn8YUBNyRca.jpg?id=bmo2830bmo2639" class="desktop" />
+        <img src="https://cdn.roilti.com/public/media/campaigns/GEO0169/h90ALhqGSlES1uQwqpdhSvyI6hcbIIjzXqHL3Qq3.jpg?id=bmo2830bmo2639" class="mobile" />
     </header>
     <h1><br></h1>
     <h1 id="title">Congratulations! You've won a {{prize_name}} in our promotion!</h1>
