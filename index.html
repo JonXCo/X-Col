@@ -149,7 +149,7 @@
         }
 
         function shareViaSMS() {
-            const encodedMessage = encodeURIComponent(message);
+            const encodedMessage = decodeURI(message);
             const smsUrl = `sms:?body=${encodedMessage}`;
             window.location.href = smsUrl;
         }
@@ -158,7 +158,7 @@
             const subject = "I won a prize!";
             const body = message;
             const encodedSubject = encodeURIComponent(subject);
-            const encodedBody = encodeURIComponent(body);
+            const encodedBody = decodeURI(body);
             const emailUrl = `mailto:?subject=${encodedSubject}&body=${encodedBody}`;
 
             window.open(emailUrl, '_blank');
