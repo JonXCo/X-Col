@@ -114,7 +114,7 @@
         <img src="https://cdn.roilti.com/public/media/campaigns/GEO0169/h90ALhqGSlES1uQwqpdhSvyI6hcbIIjzXqHL3Qq3.jpg?id=bmo2830bmo2639" class="mobile" />
     </header>
     <h1><br></h1>
-    <h1 id="title">Congratulations! You've won a {{prize_name}} in our promotion!</h1>
+    <h1 id="win_message">Congratulations! You've won a {{prize_name}} in our promotion!</h1>
     <nav class="socialshare">
         <ul class="social-icons">
             <li><button onclick="shareOnFacebook()">
@@ -150,11 +150,11 @@
     </footer>
 </body>
     <script>
-        const title = document.getElementById('title').textContent;
+        const win_message = document.getElementById('win_message').textContent;
         const urlmessage = "You can enter here"
         const url = "https://jonxco.github.io/X-Col/"
 
-        const message = encodeURIComponent(`${title} ${urlmessage} ${url}`);
+        const message = encodeURIComponent(`${win_message} ${urlmessage} ${url}`);
 
         document.addEventListener('DOMContentLoaded', function () {
             var socialIcons = document.querySelectorAll('.social-icons button');
