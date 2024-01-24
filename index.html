@@ -121,7 +121,7 @@
                 <i class="fab fa-facebook"></i> Share on Facebook
             </button></li>
              <li><button onclick="shareOnFacebook2()">
-                <i class="fab fa-facebook"></i> Share on Facebook
+                <i class="fab fa-facebook"></i> Share link on Facebook
             </button></li>
             <li><button onclick="shareOnTwitter()">
                 <i class="fab fa-twitter"></i> Share on Twitter
@@ -186,13 +186,14 @@
         }
 
         function shareOnFacebook2() {
-            FB.ui({
-                method: 'share',
-                href: url,
-            }, function (response) {
-                // Callback function after sharing
-                console.log(response);
-            });
+            // Replace 'Your Page URL' with the actual URL you want to share
+            var urlToShare = url;
+            
+            // Construct the Facebook share URL
+            var facebookShareUrl = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(urlToShare);
+            
+            // Open the share dialog in a new window
+            window.open(facebookShareUrl, 'Share on Facebook', 'width=600,height=400');
         }
 
         function shareViaSMS() {
