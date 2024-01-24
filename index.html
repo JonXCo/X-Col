@@ -120,6 +120,9 @@
             <li><button onclick="shareOnFacebook()">
                 <i class="fab fa-facebook"></i> Share on Facebook
             </button></li>
+             <li><button onclick="shareOnFacebook2()">
+                <i class="fab fa-facebook"></i> Share on Facebook
+            </button></li>
             <li><button onclick="shareOnTwitter()">
                 <i class="fab fa-twitter"></i> Share on Twitter
             </button></li>
@@ -180,6 +183,16 @@
         function shareOnFacebook() {
             const postUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}&quote=${message}`;
             window.open(postUrl, "_blank");
+        }
+
+        function shareOnFacebook2() {
+            FB.ui({
+                method: 'share',
+                href: 'Your Page URL',
+            }, function (response) {
+                // Callback function after sharing
+                console.log(response);
+            });
         }
 
         function shareViaSMS() {
