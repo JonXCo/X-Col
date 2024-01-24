@@ -120,7 +120,7 @@
             <li><button onclick="shareOnFacebook()">
                 <i class="fab fa-facebook"></i> Share on Facebook
             </button></li>
-             <li><button onclick="shareOnFacebook2()">
+            <li><button onclick="shareOnFacebook2('https://jonxco.github.io/X-Col/')">
                 <i class="fab fa-facebook"></i> Share link on Facebook
             </button></li>
             <li><button onclick="shareOnTwitter()">
@@ -185,13 +185,10 @@
             window.open(postUrl, "_blank");
         }
 
-        function shareOnFacebook2() {
-            // Replace 'Your Page URL' with the actual URL you want to share
-            var urlToShare = url;
-            
+        function shareOnFacebook2(urlToShare) {
             // Construct the Facebook share URL
-            var facebookShareUrl = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(urlToShare);
-            
+            const facebookShareUrl = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(urlToShare);
+    
             // Open the share dialog in a new window
             window.open(facebookShareUrl, 'Share on Facebook', 'width=600,height=400');
         }
