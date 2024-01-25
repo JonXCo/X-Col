@@ -114,17 +114,14 @@
     <h1 id="win_message">Congratulations! You've won a {{prize_name}} in our promotion!</h1>
     <nav class="socialshare">
         <ul class="social-icons">
-            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-text="Tweet Prefill" data-hashtags="testthisfunction" data-related="altiparmak61148" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-            <div class="fb-share-button" data-href="https://jonxco.github.io/X-Col/" data-layout="" data-size=""><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fjonxco.github.io%2FX-Col%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
-            <div class="fb-share-button" data-href="https://jonxco.github.io/X-Col/" data-layout="" data-size=""><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fjonxco.github.io%2FX-Col%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+            
             <li><button onclick="shareOnFacebook()">
                 <i class="fab fa-facebook"></i> Share on Facebook
             </button></li>
             <li><button onclick="shareOnFacebook2('https://jonxco.github.io/X-Col/')">
                 <i class="fab fa-facebook"></i> Share link on Facebook
             </button></li>
-            <li><button onclick="shareOnTwitter()">
+            <li><button onclick="shareOnTwitter2()">
                 <i class="fab fa-twitter"></i> Share on Twitter
             </button></li>
             <li><button onclick="composeWhatsAppMessage()">
@@ -174,6 +171,17 @@
         function shareOnTwitter() {
             const tweetUrl = `https://twitter.com/intent/tweet?text=${message}`;
             window.open(tweetUrl, "_blank");
+        }
+
+        function shareOnTwitter2() {
+            // Add your custom logic here or redirect to the Twitter share URL
+            var twitterShareURL = "https://twitter.com/share?ref_src=twsrc%5Etfw" +
+                "&text=Tweet Prefilled Message Here" +
+                "&hashtags=testthisfunction test1 test2";
+    
+            // You can open the URL in a new window or redirect the current window
+            // For example, opening in a new window:
+            window.open(twitterShareURL, "_blank");
         }
 
         function composeWhatsAppMessage() {
