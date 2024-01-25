@@ -177,12 +177,14 @@
             // Add your custom logic here or redirect to the Twitter share URL
             var twitterShareURL = "https://twitter.com/share?ref_src=twsrc%5Etfw" +
                 "&text=Tweet Prefilled Message Here" +
-                "&hashtags=testthisfunction test1 test2";
+                "&hashtags=testthisfunction,test1,test2";
     
             // You can open the URL in a new window or redirect the current window
             // For example, opening in a new window:
             window.open(twitterShareURL, "_blank");
         }
+
+        
 
         function composeWhatsAppMessage() {
             const whatsappUrl = `https://api.whatsapp.com/send?text=${message}`;
